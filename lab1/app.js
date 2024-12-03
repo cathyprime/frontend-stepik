@@ -11,7 +11,7 @@ async function fetchAllPokemon() {
 
         const data = await response.json();
         allPokemon = data.results;
-        displayPokemonList(allPokemon.slice(0, 20));
+        displayPokemonList(allPokemon);
     } catch (error) {
         pokemonListDiv.innerHTML = `<p>Error loading Pokemon list: ${error.message}</p>`;
     }
@@ -74,7 +74,7 @@ function searchPokemon(event) {
     const filteredPokemon = allPokemon.filter((pokemon) =>
         pokemon.name.toLowerCase().includes(query)
     );
-    displayPokemonList(filteredPokemon.slice(0, 20));
+    displayPokemonList(filteredPokemon);
 }
 
 document.getElementById("search-bar").addEventListener("input", searchPokemon);
