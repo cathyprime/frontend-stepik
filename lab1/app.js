@@ -79,4 +79,8 @@ function searchPokemon(event) {
 
 document.getElementById("search-bar").addEventListener("input", searchPokemon);
 
+window.onunload = () => {
+    document.getElementById("search-bar").removeEventListener("input", searchPokemon);
+}
+
 fetchAllPokemon();
